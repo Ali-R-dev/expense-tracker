@@ -1,0 +1,35 @@
+.wrapperCards {
+  display: flex;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+}
+.wrapperStatus {
+  line-height: 1;
+  padding: 10px 0;
+  margin: 0 0 0 3px;
+}
+.wrapperStatus h4 {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+.card {
+  text-align: center;
+  line-height: 1.2;
+  width: 50%;
+  padding: 10px 0;
+  background-color: white;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.black {
+  color: black;
+}
+.vl {
+  border-left: 1px solid #999999;
+  height: 40px;
+  align-self: center;
+}
