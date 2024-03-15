@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
+import { ExpenseContext } from "../../App";
 import styles from "./finance.module.css";
 import StatusCard from "./StatusCard";
-const Finance = (props) => {
-  const { totalBalance, totalExpense, totalIncome } = props;
+const Finance = () => {
+  const { totalBalance, totalExpense, totalIncome } =
+    useContext(ExpenseContext);
   return (
     <div className={styles.wrapperFinance}>
       <StatusCard

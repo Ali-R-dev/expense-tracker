@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ExpenseContext } from "../../App";
 import styles from "./transaction.module.css";
 
 const defaultValues = {
@@ -7,7 +8,9 @@ const defaultValues = {
   value: "",
 };
 
-const NewTranscation = ({ saveNewTranscation }) => {
+const NewTranscation = () => {
+  const { saveNewTranscation } = useContext(ExpenseContext);
+
   const [newTranscation, setNewTransaction] = useState(defaultValues);
   const handleChange = ({ target }) => {
     const { name, value } = target;

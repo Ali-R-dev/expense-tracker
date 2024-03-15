@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 import Finance from "./components/finance/Finance";
 import Header from "./components/Header";
 import History from "./components/history/History";
 import NewTranscation from "./components/transaction/NewTranscation";
+
+export const ExpenseContext = createContext();
 
 function App() {
   const [transactions, setTransactions] = useState([
@@ -24,18 +26,24 @@ function App() {
   const saveNewTranscation = ({ title, value }) =>
     setTransactions([...transactions, { title: title, value: +value }]);
   return (
-    <div id="app">
-      <div className="wrapper">
-        <Header />
-        <Finance
-          totalBalance={totalBalance}
-          totalExpense={totalExpense}
-          totalIncome={totalIncome}
-        />
-        <History history={transactions} />
-        <NewTranscation saveNewTranscation={saveNewTranscation} />
+    <ExpenseContext.Provider
+      value={{
+        totalBalance,
+        totalExpense,
+        totalIncome,
+        transactions,
+        saveNewTranscation,
+      }}
+    >
+      <div id="app">
+        <div className="wrapper">
+          <Header />
+          <Finance />
+          <History />
+          <NewTranscation />
+        </div>
       </div>
-    </div>
+    </ExpenseContext.Provider>
   );
 }
 
