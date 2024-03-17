@@ -19,10 +19,16 @@
   background-color: #f6f6f6;
 }
 .wrapper {
-  width: 300px;
+  width: 900px;
   margin: 0 auto;
   padding: 10px;
+  display: flex;
 }
+.sideBar,
+.wrapperMain {
+  width: 300px;
+}
+
 header {
   display: flex;
   height: 50px;

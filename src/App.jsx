@@ -37,10 +37,18 @@ function App() {
     >
       <div id="app">
         <div className="wrapper">
-          <Header />
-          <Finance />
-          <History />
-          <NewTranscation />
+          <div className="sideBar">
+            <Header />
+            <Finance />
+            <History />
+            <NewTranscation />
+          </div>
+          {/* <div className="wrapperMain">
+            <Header />
+            <Finance />
+            <History />
+            <NewTranscation />
+          </div> */}
         </div>
       </div>
     </ExpenseContext.Provider>
@@ -48,3 +56,19 @@ function App() {
 }
 
 export default App;
+
+// const data = [
+
+//   uid:{
+//     categories:[{id,title:},{id,title}],
+//     trans:[
+//       {catId,transID,datetim},
+//       {catId,transID,datetim}
+//     ]
+//   }
+//   ,
+//   uid:[
+//     {catId,transID,datetim},
+//     {catId,transID,datetim}
+//   ]
+// ]
