@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 import Finance from "./components/finance/Finance";
 import Header from "./components/Header";
 import History from "./components/history/History";
-import NewTranscation from "./components/transaction/NewTranscation";
+import NewTransaction from "./components/transaction/NewTransaction";
 
 export const ExpenseContext = createContext();
 
@@ -13,18 +13,19 @@ function App() {
     { title: "Side hussle", value: 150 },
     { title: "Groceries", value: -300 },
   ]);
+
   const totalBalance = () =>
     transactions.reduce((acc, { value }) => acc + value, 0);
 
   const totalExpense = () =>
     transactions.reduce((acc, { value }) => acc + (value > 0 ? value : 0), 0);
-  const totalIncome = () =>
-    Math.abs(
-      transactions.reduce((acc, { value }) => acc + (value < 0 ? value : 0), 0)
-    );
 
-  const saveNewTranscation = ({ title, value }) =>
+  const totalIncome = () =>
+    transactions.reduce((acc, { value }) => acc + (value < 0 ? value : 0), 0);
+
+  const saveNewTransaction = ({ title, value }) =>
     setTransactions([...transactions, { title: title, value: +value }]);
+
   return (
     <ExpenseContext.Provider
       value={{
@@ -32,7 +33,7 @@ function App() {
         totalExpense,
         totalIncome,
         transactions,
-        saveNewTranscation,
+        saveNewTransaction,
       }}
     >
       <div id="app">
@@ -41,14 +42,8 @@ function App() {
             <Header />
             <Finance />
             <History />
-            <NewTranscation />
+            <NewTransaction />
           </div>
-          {/* <div className="wrapperMain">
-            <Header />
-            <Finance />
-            <History />
-            <NewTranscation />
-          </div> */}
         </div>
       </div>
     </ExpenseContext.Provider>

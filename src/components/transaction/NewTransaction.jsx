@@ -8,18 +8,18 @@ const defaultValues = {
   value: "",
 };
 
-const NewTranscation = () => {
-  const { saveNewTranscation } = useContext(ExpenseContext);
+const NewTransaction = () => {
+  const { saveNewTransaction } = useContext(ExpenseContext);
 
-  const [newTranscation, setNewTransaction] = useState(defaultValues);
+  const [newTransaction, setNewTransaction] = useState(defaultValues);
   const handleChange = ({ target }) => {
     const { name, value } = target;
-    setNewTransaction({ ...newTranscation, [name]: value });
+    setNewTransaction({ ...newTransaction, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    saveNewTranscation(newTranscation);
+    saveNewTransaction(newTransaction);
     setNewTransaction({ ...defaultValues });
   };
 
@@ -33,7 +33,7 @@ const NewTranscation = () => {
           required
           type="text"
           placeholder="Enter Title"
-          value={newTranscation.title}
+          value={newTransaction.title}
           name="title"
           onChange={(e) => handleChange(e)}
         />
@@ -49,7 +49,7 @@ const NewTranscation = () => {
           type="number"
           placeholder="Enter Amount"
           name="value"
-          value={newTranscation.value}
+          value={newTransaction.value}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -60,4 +60,4 @@ const NewTranscation = () => {
   );
 };
 
-export default NewTranscation;
+export default NewTransaction;
